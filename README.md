@@ -135,7 +135,7 @@ drosera bloomboost --trap-address <trap_address> --eth-amount <amount>
 
 ## Drosera Operator Setup on Mac
 
-### Method 1: Using Docker (Recommended)
+### A. Method 1: Using Docker (Recommended)
 
 1. Create a working directory:
 ```bash
@@ -195,7 +195,7 @@ docker compose up -d
 docker compose logs -f
 ```
 
-### Method 2: Native Installation (Alternative)
+### A. Method 2: Native Installation (Alternative)
 
 1. Install Go:
 ```bash
@@ -213,6 +213,25 @@ cd drosera-operator
 go build
 ./drosera-operator --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com --eth-private-key your_private_key
 ```
+## B. Register your Operator ([FAILED to register ? click here](#-problem-register-operator-transaction-fails))
+
+```bash
+drosera-operator register \
+  --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com \
+  --eth-private-key your_eth_private_key_here \
+  --drosera-address 0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D
+```
+
+## C. Opt-in your trap config ([use dashboard instead click here](#configure-through-dashboard-instead))
+
+```bash
+drosera-operator optin \
+  --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com \
+  --eth-private-key your_eth_private_key_here \
+  --trap-config-address your_trap_address_here
+```
+
+---
 
 ## Important Notes for Mac Users
 
