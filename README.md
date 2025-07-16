@@ -71,6 +71,67 @@ Edit the trap configuration:
 ```bash
 nano drosera.toml
 ```
+Add the following codes at `drosera.toml`:
+
+### Trap Configuration (`drosera.toml`)
+
+```toml
+ethereum_rpc = "https://ethereum-hoodi-rpc.publicnode.com"
+drosera_rpc = "https://relay.hoodi.drosera.io"
+eth_chain_id = 560048
+drosera_address = "0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"
+
+[traps]
+
+[traps.helloworld]
+path = "out/HelloWorldTrap.sol/HelloWorldTrap.json"
+response_contract = "0x183D78491555cb69B68d2354F7373cc2632508C7"
+response_function = "helloworld(string)"
+cooldown_period_blocks = 33
+min_number_of_operators = 1
+max_number_of_operators = 2
+block_sample_size = 10
+private_trap = true
+whitelist = ["YOUR_OPERATOR_WALLET_ADDRESS"]
+
+# New Users/Migrate:
+# address = "DELETE THIS LINE WHEN APPLYING" (it will generate address after apply trap config)
+
+# Existing Users:
+# If you've deployed a trap with your wallet previously (Hoodi not Holesky), add your trap address here:
+# address = "TRAP_ADDRESS"
+```
+
+---
+
+### Apply the Trap Config (New users/Migrate) / Re-apply (Existing users)
+
+```bash
+DROSERA_PRIVATE_KEY=your_eth_private_key_here drosera apply
+```
+---
+
+### Check Trap in Dashboard
+
+Go to [https://app.drosera.io/](https://app.drosera.io/)\
+Connect your Drosera EVM wallet\
+Change network to Hoodi\
+Search your trap by wallet address or trap config address generated after applying\
+You can send Bloom Boost or monitor your trap here
+
+---
+
+### Bloom Boost Trap 
+
+Drosera lets you increase your trap’s priority on-chain by depositing Hoodi ETH to boost response speed.
+To boost a trap:
+
+```bash
+drosera bloomboost --trap-address <trap_address> --eth-amount <amount>
+```
+
+---
+
 
 ## Drosera Operator Setup on Mac
 
