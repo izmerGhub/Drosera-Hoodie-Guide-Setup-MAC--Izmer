@@ -213,7 +213,7 @@ cd drosera-operator
 go build
 ./drosera-operator --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com --eth-private-key your_private_key
 ```
-## B. Register your Operator ([FAILED to register ? click here](#-problem-register-operator-transaction-fails))
+## B. Register your Operator 
 
 ```bash
 drosera-operator register \
@@ -222,8 +222,7 @@ drosera-operator register \
   --drosera-address 0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D
 ```
 
-## C. Opt-in your trap config ([use dashboard instead click here](#configure-through-dashboard-instead))
-
+## C. Opt-in your trap config 
 ```bash
 drosera-operator optin \
   --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com \
