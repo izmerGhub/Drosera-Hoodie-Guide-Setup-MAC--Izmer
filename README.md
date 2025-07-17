@@ -213,7 +213,7 @@ cd drosera-operator
 go build
 ./drosera-operator --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com --eth-private-key your_private_key
 ```
-#### Allow Ports in macOS Firewall
+## Allow Ports in macOS Firewall
 Unblock the ports in macOS's built-in firewall:
 ```bash
 # Allow TCP traffic on 31313 and 31314
