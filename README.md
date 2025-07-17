@@ -213,6 +213,17 @@ cd drosera-operator
 go build
 ./drosera-operator --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com --eth-private-key your_private_key
 ```
+#### Allow Ports in macOS Firewall
+Unblock the ports in macOS's built-in firewall:
+```bash
+# Allow TCP traffic on 31313 and 31314
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --addport 31313,tcp,in,allow
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --addport 31314,tcp,in,allow
+
+# Restart firewall (optional)
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --restart
+```
+
 ## B. Register your Operator 
 
 ```bash
@@ -231,6 +242,7 @@ drosera-operator optin \
 ```
 
 ---
+
 
 ## Important Notes for Mac Users
 
