@@ -267,7 +267,7 @@ wg genkey > /etc/wireguard/privatekey
 wg pubkey < /etc/wireguard/privatekey > /etc/wireguard/publickey
 ```
 
-**3. Create Safe WireGuard Config** (`/etc/wireguard/wg0.conf`)  
+**3. Create Safe WireGuard Config** (`nano /etc/wireguard/wg0.conf`)  
 ```ini
 [Interface]
 PrivateKey = <VPS_PRIVATE_KEY>
@@ -294,7 +294,7 @@ AllowedIPs = 10.8.0.2/32
 brew install wireguard-tools
 ```
 
-**2. Create Mac Config** (`~/wg0.conf`)  
+**2. Create Mac Config** (`nano ~/wg0.conf`)  
 ```ini
 [Interface]
 PrivateKey = <MAC_PRIVATE_KEY>
@@ -345,7 +345,51 @@ ssh user@<VPS_IP>  # Should still work!
    ```bash
    sudo tcpdump -i eth0 port 22  # Should see your SSH traffic
    ```
+### **Update your docker compose**
+1. Update `docker-compose.yaml`:
+```bash
+nano docker-compose.yaml
+```
 
+Paste the following (same as Ubuntu version):
+```yaml
+version: '3'
+services:
+  drosera-operator:
+    image: ghcr.io/drosera-network/drosera-operator:latest
+    container_name: drosera-operator
+    network_mode: none  # 👇 Disable Docker networking (we'll use WireGuard's network)
+    environment:
+      - DRO__DB_FILE_PATH=/data/drosera.db
+      - DRO__DROSERA_ADDRESS=0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D
+      - DRO__LISTEN_ADDRESS=10.8.0.2  # 👇 Bind to WireGuard IP
+      - DRO__DISABLE_DNR_CONFIRMATION=true
+      - DRO__ETH__CHAIN_ID=560048
+      - DRO__ETH__RPC_URL=https://ethereum-hoodi-rpc.publicnode.com
+      - DRO__ETH__BACKUP_RPC_URL=https://ethereum-hoodi-rpc.publicnode.com
+      - DRO__ETH__PRIVATE_KEY=${ETH_PRIVATE_KEY}
+      - DRO__NETWORK__P2P_PORT=31313
+      - DRO__NETWORK__EXTERNAL_P2P_ADDRESS=${VPS_IP}  # Public IP of VPS
+      - DRO__SERVER__PORT=31314
+    volumes:
+      - drosera_data:/data
+    restart: always
+    # 👇 Critical: Connect container to host's WireGuard interface
+    network_mode: "service:wg-service"  # Requires Docker 20.10+
+
+volumes:
+  drosera_data:
+```
+
+2. Update `.env` file:
+```bash
+nano .env
+```
+Add:
+```
+ETH_PRIVATE_KEY=your_eth_private_key_here
+VPS_IP=your_rent_ip_here  # New Public static IP (find with ifconfig)
+```
 ## Important Notes for Mac Users
 
 1. Firewall Configuration:
