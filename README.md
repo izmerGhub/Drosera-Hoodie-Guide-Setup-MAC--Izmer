@@ -245,10 +245,18 @@ drosera-operator optin \
 # 🟥🟥 I DONE EVERYTHING MY NODE STILL RED :( 🟥🟥
 
 ##  How to Fix common IP/firewall Issues Red Node
+
 ### **🛡️ Step 1: VPS Setup (Safe Config)**
 **1. Rent VPS (Ubuntu 22.04 LTS)**  
-- **Must-have**: Public IPv4 (e.g., Linode/Hetzner)  
+- **Must-have**: Public IPv4 
 - **Critical**: Enable **SSH (port 22)** in firewall during setup.
+
+🔥 **RackNerd** – Reliable low-cost KVM VPS with locations worldwide  
+➡️ [Explore RackNerd Offers](https://my.racknerd.com/aff.php?aff=14994) <!-- hidden referral -->
+
+💰 **HostVDS** – Russian-based affordable VPS with custom configuration  
+➡️ [Check HostVDS Plans](https://hostvds.com/?affiliate_uuid=f3d517f2-6e58-4549-9ecd-d280fa8cea3c) <!-- hidden referral -->
+
 
 **2. Configure WireGuard on VPS**  
 ```bash
