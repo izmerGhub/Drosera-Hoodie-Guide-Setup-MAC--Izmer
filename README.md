@@ -246,7 +246,7 @@ drosera-operator optin \
 
 ##  How to Fix common IP/firewall Issues Red Node
 
-### **🛡️ Step 1: VPS Setup (Safe Config)**
+### ** 🛡️Step 1: VPS Setup (Safe Config)**
 **1. Rent VPS (Ubuntu 22.04 LTS)**  
 - **Must-have**: Public IPv4 
 - **Critical**: Enable **SSH (port 22)** in firewall during setup.
@@ -288,7 +288,7 @@ AllowedIPs = 10.8.0.2/32
 
 ---
 
-### **💻 Mac Setup (No Internet Kill)**
+### **💻 Step 2:Mac Setup (No Internet Kill)**
 **1. Install WireGuard GUI**  
 ```bash
 brew install wireguard-tools
@@ -345,7 +345,7 @@ ssh user@<VPS_IP>  # Should still work!
    ```bash
    sudo tcpdump -i eth0 port 22  # Should see your SSH traffic
    ```
-### **Update your docker compose**
+### ** 🐳 Step 3: Update your docker compose**
 1. Update `docker-compose.yaml`:
 ```bash
 nano docker-compose.yaml
@@ -388,7 +388,7 @@ nano .env
 Add:
 ```
 ETH_PRIVATE_KEY=your_eth_private_key_here
-VPS_IP=your_rent_ip_here  # New Public static IP (find with ifconfig)
+VPS_IP=your_rent_vps_ip_here  # New Public static IP (find with ifconfig)
 ```
 3. Re-run the operator:
 ```bash
