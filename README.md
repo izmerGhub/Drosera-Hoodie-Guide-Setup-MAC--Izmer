@@ -345,7 +345,7 @@ ssh user@<VPS_IP>  # Should still work!
    ```bash
    sudo tcpdump -i eth0 port 22  # Should see your SSH traffic
    ```
-### ** 🐳 Step 3: Update your docker compose**
+### **🐳 Step 3: Update your docker compose**
 1. Update `docker-compose.yaml`:
 ```bash
 nano docker-compose.yaml
