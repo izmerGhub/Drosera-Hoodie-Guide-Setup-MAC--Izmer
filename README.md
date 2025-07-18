@@ -390,6 +390,13 @@ Add:
 ETH_PRIVATE_KEY=your_eth_private_key_here
 VPS_IP=your_rent_ip_here  # New Public static IP (find with ifconfig)
 ```
+3. Re-run the operator:
+```bash
+docker compose down -v
+docker compose up -d
+docker compose logs -f
+```
+
 ## Important Notes for Mac Users
 
 1. Firewall Configuration:
