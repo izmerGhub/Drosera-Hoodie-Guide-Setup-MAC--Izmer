@@ -265,6 +265,9 @@ sudo su
 umask 077
 wg genkey > /etc/wireguard/privatekey
 wg pubkey < /etc/wireguard/privatekey > /etc/wireguard/publickey
+# View the keys  <VPS_PRIVATE_KEY> <VPS_PUBLIC_KEY>
+cat /etc/wireguard/privatekey
+cat /etc/wireguard/publickey
 ```
 
 **3. Create Safe WireGuard Config** (`nano /etc/wireguard/wg0.conf`)  
@@ -291,7 +294,17 @@ AllowedIPs = 10.8.0.2/32
 ### **💻 Step 2:Mac Setup (No Internet Kill)**
 **1. Install WireGuard GUI**  
 ```bash
+# Install WireGuard using Homebrew (if you don't have Homebrew: https://brew.sh)
 brew install wireguard-tools
+
+# Generate keys (no sudo needed, stored in current directory)
+umask 077
+wg genkey > privatekey
+wg pubkey < privatekey > publickey
+
+# View the keys <MAC_PRIVATE_KEY> <MAC_PUBLIC_KEY>
+cat privatekey
+cat publickey
 ```
 
 **2. Create Mac Config** (`nano ~/wg0.conf`)  
