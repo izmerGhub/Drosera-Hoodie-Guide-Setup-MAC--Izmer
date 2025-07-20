@@ -330,8 +330,8 @@ Endpoint = <VPS_IP>:51820
 AllowedIPs = 10.8.0.0/24  # Only tunnel VPS traffic
 PersistentKeepalive = 25
 ```
-Get <VPS_IP>: Run `curl ifconfig.me` on your VPS to get its public IP  
-Get <YOUR_DEFAULT_GW>: Run `ip route | grep default` (Linux/macOS)
+Get <VPS_IP>: Run `curl ifconfig.me` (on VPS)
+Get <YOUR_DEFAULT_GW>: Run `ip route | grep default` (on macOS)
 
 **3. Activate Tunnel**  
 ```bash
