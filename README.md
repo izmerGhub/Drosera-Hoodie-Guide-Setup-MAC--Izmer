@@ -297,7 +297,7 @@ AllowedIPs = 10.8.0.2/32
    sudo systemctl start wg-quick@wg0
    ```
 
-### **💻 Step 2:Mac Setup (No Internet Kill)**
+### **💻 Step 2:Mac Setup (No Internet Kill)** [On Mac Device]
 **1. Install WireGuard GUI**  
 ```bash
 # Install WireGuard using Homebrew (if you don't have Homebrew: https://brew.sh)
