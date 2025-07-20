@@ -246,7 +246,7 @@ drosera-operator optin \
 
 ##  How to Fix common IP/firewall Issues Red Node
 
-### ** 🛡️Step 1: VPS Setup (Safe Config)**
+### ** 🛡️Step 1: VPS Setup (Safe Config)** [ON VPS]
 **1. Rent VPS (Ubuntu 22.04 LTS)**  
 - **Must-have**: Public IPv4 
 - **Critical**: Enable **SSH (port 22)** in firewall during setup.
@@ -290,6 +290,12 @@ AllowedIPs = 10.8.0.2/32
 ```
 
 ---
+**4. Save and Start it**  
+   ```bash
+   sudo chmod 600 /etc/wireguard/wg0.conf
+   sudo systemctl enable wg-quick@wg0
+   sudo systemctl start wg-quick@wg0
+   ```
 
 ### **💻 Step 2:Mac Setup (No Internet Kill)**
 **1. Install WireGuard GUI**  
