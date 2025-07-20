@@ -351,7 +351,7 @@ ssh user@<VPS_IP>  # Should still work!
 ### **🌐 Internet Preservation Tests**
 1. **On Mac**:  
    ```bash
-   curl ifconfig.me  # Should show YOUR original IP, not VPS IP
+   curl ifconfig.me  # Should show YOUR IP
    ping google.com   # Should work
    ```
 2. **On VPS**:  
