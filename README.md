@@ -285,7 +285,7 @@ PostUp = iptables -A FORWARD -i wg0 -j ACCEPT
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT
 
 [Peer]
-PublicKey = <MAC_PUBLIC_KEY>
+PublicKey = <MAC_PUBLIC_KEY> #Find on step 2 mac wg setup
 AllowedIPs = 10.8.0.2/32
 ```
 
@@ -332,7 +332,7 @@ PostUp = route -n add -net <VPS_IP> -gateway <YOUR_DEFAULT_GW>
 PostUp = route -n add -net 10.8.0.0/24 -interface utun0
 
 [Peer]
-PublicKey = <VPS_PUBLIC_KEY>
+PublicKey = <VPS_PUBLIC_KEY> #Find on step 1 wg vps setup
 Endpoint = <VPS_IP>:51820
 AllowedIPs = 10.8.0.0/24  # Only tunnel VPS traffic
 PersistentKeepalive = 25
