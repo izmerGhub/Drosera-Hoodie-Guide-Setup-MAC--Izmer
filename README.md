@@ -296,6 +296,13 @@ AllowedIPs = 10.8.0.2/32
    sudo systemctl enable wg-quick@wg0
    sudo systemctl start wg-quick@wg0
    ```
+**5. VPS Firewall Open:**
+   ```bash
+   sudo ufw allow 51820/udp
+   sudo ufw allow 22/tcp
+   sudo ufw allow 31313/tcp
+   sudo ufw allow 31314/tcp
+   ```
 
 ### B. **💻 Step 2:Mac Setup (No Internet Kill)** [On Mac Device]
 **1. Install WireGuard GUI**  
