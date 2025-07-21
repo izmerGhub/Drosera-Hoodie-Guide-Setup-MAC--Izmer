@@ -345,7 +345,22 @@ Get <YOUR_DEFAULT_GW>: Run `ip route | grep default` (on macOS)
 ```bash
 sudo wg-quick up ~/wg0.conf
 ```
+**4. Allow Ports in macOS Firewall**  
+macOS uses `socketfilterfw` for firewall rules. Run these commands to open **TCP 31313, 31314, 22 (SSH)** and **UDP 51820 (WireGuard)**:  
 
+```bash
+# Allow TCP ports (SSH, custom apps)
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --addport 31313,tcp,in,allow
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --addport 31314,tcp,in,allow
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --addport 22,tcp,in,allow
+
+# Allow UDP port (WireGuard VPN)
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --addport 51820,udp,in,allow
+
+# Optional: Verify and restart firewall
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --list
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --restart
+```
 ---
 
 ### C. **🔌 Port Forwarding (Safe Method)**
