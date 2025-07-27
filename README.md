@@ -334,7 +334,7 @@ PostUp = route -n add -net 10.8.0.0/24 -interface utun0
 [Peer]
 PublicKey = <VPS_PUBLIC_KEY> #Find on step 1 wg vps setup
 Endpoint = <VPS_IP>:51820
-AllowedIPs = 10.8.0.0/24  # Only tunnel VPS traffic
+AllowedIPs = 0.0.0.0/24  # Only tunnel VPS traffic
 PersistentKeepalive = 25
 ```
 Get <VPS_IP>: Run `curl ifconfig.me` (on VPS)
